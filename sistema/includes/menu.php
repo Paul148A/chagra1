@@ -1,5 +1,5 @@
 <head>
-  <link rel="stylesheet" href="css/styles1.css">
+  <link rel="stylesheet" href="css/styles2.css">
 </head>
 <!-- Sidebar - Brand -->
 <nav class="nav">
@@ -16,6 +16,19 @@
       <p class=""><strong>Ecuador, </strong><?php echo fechaPeru(); ?></p>
     </div>
   </li>
+  <?php if ($_SESSION['rol'] == 2) { ?>
+    <li class="nav-item">
+      <div class="nav-link mt-4">
+        <p class=""><strong>VENDEDOR</strong></p>
+      </div>
+    </li>
+  <?php } else { ?>
+    <li class="nav-item">
+      <div class="nav-link mt-4">
+        <p class=""><strong>ADMINISTRADOR</strong></p>
+      </div>
+    </li>
+  <?php } ?>
   <li class="drop1 nav-item dropdown mt-4">
     <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown">
       <span class="d-none d-lg-inline small"><?php echo $_SESSION['nombre']; ?></span>
@@ -69,7 +82,7 @@
           Productos
         </a>
         <ul class="dropdown-menu">
-        <?php if ($_SESSION['rol'] == 1) { ?><a class="dropdown-item" href="registro_producto.php">Nuevo Producto</a><?php } ?>
+          <?php if ($_SESSION['rol'] == 1) { ?><a class="dropdown-item" href="registro_producto.php">Nuevo Producto</a><?php } ?>
           <a class="dropdown-item" href="lista_productos.php">Productos</a>
         </ul>
       </li>
@@ -122,4 +135,6 @@
     </ul>
   </div>
   </div>
+  <link rel="stylesheet" href="css/styles2.css">
+
 </nav><br>

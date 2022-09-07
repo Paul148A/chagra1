@@ -84,9 +84,9 @@ if (!empty($_SESSION['active'])) {
                     <div class="form-group">
                       <label for="">Contraseña</label>
                       <input type="password" class="form-control" placeholder="Contraseña" name="clave">
-                    </div>
-                    <input type="submit" value="Iniciar" class="btn btn-primary">
-                    <hr>
+                    </div><br>
+                    <input type="submit" value="Iniciar" class="btn btn-danger">
+                    
                   </form>
                   <hr>
                 </div>

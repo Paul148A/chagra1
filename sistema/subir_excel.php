@@ -1,20 +1,31 @@
-<?php include_once "includes/header.php";
-  include "../conexion.php";
-  
-  ?>
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
+<?php 
+include "includes/header.php";
+include "../conexion.php";
 
- <!-- Begin Page Content -->
- <div class="d-sm-flex align-items-center justify-content-between mb-4">
-     <h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
-     <a href="lista_productos.php" class="btn btn-danger">Regresar</a>
-   </div>
-   <div class="row">
-     <div class="col-lg-6 m-auto">
-       <form action="cargar_data.php" method="post" enctype="multipart/form-data" id="filesForm">
-       <div class="form-group">
+?>
+
+<html lang="es">
+	<head> 
+		<title>ITIC TUTORIALES</title>
+		
+
+
+        <!-- jQuery library -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+        <!-- Latest compiled JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	</head>
+	<body>
+		
+			<div>
+			<h3 class="col-md-4 offset-md-4">Seleccione un archivo CSV </h3>
+			</div>
+		
+
+        <form action="files.php" method="post" enctype="multipart/form-data" id="filesForm">
+        <div class="form-group col-md-4 offset-md-4">
            <label>Proveedor</label>
            <?php
             $query_proveedor = mysqli_query($conexion, "SELECT codproveedor, proveedor FROM proveedor ORDER BY proveedor ASC");
@@ -34,33 +45,37 @@
               ?>
            </select>
          </div>
-       <div class="form-group">
-           <label for="">Seleccione su archivo de Excel</label>
-           <input type="file" class="form-control" name="file"><br>
-            <button type="button" onclick="uploadContacts()" class="btn btn-danger form-control">Cargar</button>
-        </div>
-       </form>
-     </div>
-   </div>
+        <div class="col-md-4 offset-md-4">
+           <label>Archivo CSV</label>
 
-   <script type="text/javascript">
-    function uploadContacts(){
+                <input class="form-control" type="file" name="fileContacts" ><br>
+
+                <button type="button" onclick="uploadContacts()" class="btn btn-danger form-control" >Cargar</button>
+            </div>
+        </form>
+
+</body>
+</html>
+
+<script type="text/javascript">
+
+    function uploadContacts()
+    {
         var Form = new FormData($('#filesForm')[0]);
         $.ajax({
+
             url: "cargar_data.php",
             type: "post",
-            data: Form,
+            data : Form,
             processData: false,
             contentType: false,
-            success: function(data){
-                alert('Registros Agregados');
+            success: function(data)
+            {
+                alert('Registros Agregados!');
             }
-        })
+        });
     }
-   </script>
- <!-- End of Main Content -->
- 
- 
- <?php include_once "includes/footer.php"; ?>
 
- 
+</script>
+
+<?php include_once "includes/footer.php"; ?>

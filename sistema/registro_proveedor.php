@@ -20,35 +20,43 @@ if (!empty($_POST)) {
             $alert = '<div class="alert alert-danger" role="alert">
                         El Ruc ya esta registrado
                     </div>';
-        }else{
-        
+        } else {
 
-        $query_insert = mysqli_query($conexion, "INSERT INTO proveedor(proveedor,contacto,telefono,direccion,usuario_id) values ('$proveedor', '$contacto', '$telefono', '$Direccion','$usuario_id')");
-        if ($query_insert) {
-            $alert = '<div class="alert alert-primary" role="alert">
+
+            $query_insert = mysqli_query($conexion, "INSERT INTO proveedor(proveedor,contacto,telefono,direccion,usuario_id) values ('$proveedor', '$contacto', '$telefono', '$Direccion','$usuario_id')");
+            if ($query_insert) {
+                $alert = '<div class="alert alert-primary" role="alert">
                         Proveedor Registrado
                     </div>';
-        } else {
-            $alert = '<div class="alert alert-danger" role="alert">
+            } else {
+                $alert = '<div class="alert alert-danger" role="alert">
                        Error al registrar proveedor
                     </div>';
-        }
+            }
         }
     }
 }
 mysqli_close($conexion);
 ?>
 
+
 <!-- Begin Page Content -->
 <div class="container-fluid">
+    <div class="col-8 d-sm-flex align-items-center justify-content-between mb-4">
+        <h1 class="h3 mb-0 text-gray-800">Panel de Administración</h1>
+    </div>
+    <div class="d-sm-flex justify-content-end mb-4">
+        <a href="lista_productos.php" class="btn btn-danger mx-3">Regresar</a>
+        <a href="subir_excel.php" class="btn btn-success">Subir masivamente</a>
+    </div>
     <!-- Content Row -->
     <div class="row">
         <div class="col-lg-6 m-auto">
-            
+
             <div class="card">
-            <div class="card-header bg-danger text-white">
-                Registro de Proveedor
-            </div>
+                <div class="card-header bg-danger text-white">
+                    Registro de Proveedor
+                </div>
                 <form action="" autocomplete="off" method="post" class="card-body p-2">
                     <?php echo isset($alert) ? $alert : ''; ?>
                     <div class="form-group">
