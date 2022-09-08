@@ -2,7 +2,7 @@
 include "../conexion.php";
 if (!empty($_POST)) {
   $alert = "";
-  if (empty($_POST['proveedor']) || empty($_POST['descripcion']) || empty($_POST['nombre_producto']) || empty($_POST['codbar']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['cantidad'] || $_POST['cantidad'] <  0) || empty($_FILES['imagen'])) {
+  if (empty($_POST['proveedor']) || empty($_POST['descripcion']) || empty($_POST['nombre_producto']) || empty($_POST['codbar']) || empty($_POST['precio']) || $_POST['precio'] <  0 || empty($_POST['stock'] || $_POST['stock'] <  0) || empty($_FILES['imagen'])) {
     $alert = '<div class="alert alert-danger" role="alert">
                 Todo los campos son obligatorios
               </div>';
@@ -31,10 +31,7 @@ if (!empty($_POST)) {
 }
 ?>
 
-<head>
-  <script src="../JsBarcode.all.min.js"></script>
 
-</head>
 <!-- Begin Page Content -->
 <div class="container-fluid">
 
@@ -76,8 +73,8 @@ if (!empty($_POST)) {
             </select>
           </div>
           <div class="form-group">
-            <label for="producto">Producto</label>
-            <input type="text" placeholder="Ingrese el nombre del producto" class="form-control" name="producto" id="producto">
+            <label for="nombre_producto">Producto</label>
+            <input type="text" placeholder="Ingrese el nombre del producto" class="form-control" name="nombre_producto" id="nombre_producto">
           </div>
           <div class="form-group">
             <label for="descripcion">Descripcion</label>
@@ -104,7 +101,6 @@ if (!empty($_POST)) {
             <?php
             $query_categoria = mysqli_query($conexion, "SELECT id, nombre FROM categoria ORDER BY nombre ASC");
             $resultado_categoria = mysqli_num_rows($query_categoria);
-            mysqli_close($conexion);
             ?>
             <select id="categoria" name="categoria" class="form-control">
               <?php
@@ -112,6 +108,25 @@ if (!empty($_POST)) {
                 while ($categoria = mysqli_fetch_array($query_categoria)) {
               ?>
                   <option value="<?php echo $categoria['id']; ?>"><?php echo $categoria['nombre']; ?></option>
+              <?php
+                }
+              }
+              ?>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Estado</label>
+            <?php
+            $query_estado = mysqli_query($conexion, "SELECT id, nombre FROM estado ORDER BY nombre ASC");
+            $resultado_estado = mysqli_num_rows($query_estado);
+            mysqli_close($conexion);
+            ?>
+            <select id="estado" name="estado" class="form-control">
+              <?php
+              if ($resultado_estado > 0) {
+                while ($estado = mysqli_fetch_array($query_estado)) {
+              ?>
+                  <option value="<?php echo $estado['id']; ?>"><?php echo $estado['nombre']; ?></option>
               <?php
                 }
               }

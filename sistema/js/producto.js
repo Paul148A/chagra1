@@ -34,7 +34,7 @@ $(document).ready(function(){
             '<h2 class="nameProducto">'+info.descripcion+'</h2>'+
             '<br>'+
             '<hr>'+
-            '<input type="number" name="cantidad" id="txtCantidad" placeholder="Cantidad del Producto" required><br>'+
+            '<input type="number" name="stock" id="txtStock" placeholder="Stock" required><br>'+
             '<input type="number" name="precio" id="txtPrecio" placeholder="Precio del Producto" required>'+
             '<input type="hidden" name="producto_id" id="producto_id" value="'+info.codproducto+'" required><br>'+
             '<input type="hidden" name="action" value="addProduct" required>'+
@@ -183,8 +183,8 @@ $('#txt_cod_producto').keyup(function(e) {
   e.preventDefault();
   var productos = $(this).val();
   if (productos == "") {
-    $('#txt_descripcion').html('-');
-    $('#txt_existencia').html('-');
+    $('#txt_nombre_producto').html('-');
+    $('#txt_stock').html('-');
     $('#txt_cant_producto').val('0');
     $('#txt_precio').html('0.00');
     $('#txt_precio_total').html('0.00');
@@ -203,8 +203,8 @@ $('#txt_cod_producto').keyup(function(e) {
     data: {action:action,producto:productos},
     success: function(response){
       if(response == 0) {
-        $('#txt_descripcion').html('-');
-        $('#txt_existencia').html('-');
+        $('#txt_nombre_producto').html('-');
+        $('#txt_stock').html('-');
         $('#txt_cant_producto').val('0');
         $('#txt_precio').html('0.00');
         $('#txt_precio_total').html('0.00');
@@ -218,8 +218,8 @@ $('#txt_cod_producto').keyup(function(e) {
       }else{
 
         var info = JSON.parse(response);
-        $('#txt_descripcion').html(info.descripcion);
-        $('#txt_existencia').html(info.existencia);
+        $('#txt_nombre_producto').html(info.nombre_producto);
+        $('#txt_stock').html(info.stock);
         $('#txt_cant_producto').val('1');
         $('#txt_precio').html(info.precio);
         $('#txt_precio_total').html(info.precio);
@@ -251,10 +251,10 @@ $('#txt_cod_producto').keyup(function(e) {
 $('#txt_cant_producto').keyup(function(e) {
   e.preventDefault();
   var precio_total = $(this).val() * $('#txt_precio').html();
-  var existencia = parseInt($('#txt_existencia').html());
+  var stock = parseInt($('#txt_stock').html());
   $('#txt_precio_total').html(precio_total);
   // Ocultat el boton Agregar si la cantidad es menor que 1
-  if (($(this).val() < 1 || isNaN($(this).val())) || ($(this).val() > existencia)){
+  if (($(this).val() < 1 || isNaN($(this).val())) || ($(this).val() > stock)){
     $('#add_product_venta').slideUp();
   }else {
     $('#add_product_venta').slideDown();
@@ -280,8 +280,8 @@ $('#add_product_venta').click(function(e) {
           $('#detalle_venta').html(info.detalle);
           $('#detalle_totales').html(info.totales);
           $('#txt_cod_producto').val('');
-          $('#txt_descripcion').html('-');
-          $('#txt_existencia').html('-');
+          $('#txt_nombre_producto').html('-');
+          $('#txt_stock').html('-');
           $('#txt_cant_producto').val('0');
           $('#txt_precio').html('0.00');
           $('#txt_precio_total').html('0.00');
@@ -462,8 +462,8 @@ function del_product_detalle(correlativo) {
         $('#detalle_venta').html(info.detalle);
         $('#detalle_totales').html(info.totales);
         $('#txt_cod_producto').val('');
-        $('#txt_descripcion').html('-');
-        $('#txt_existencia').html('-');
+        $('#txt_nombre_producto').html('-');
+        $('#txt_stock').html('-');
         $('#txt_cant_producto').val('0');
         $('#txt_precio').html('0.00');
         $('#txt_precio_total').html('0.00');
@@ -538,10 +538,9 @@ function sendDataProduct() {
     success: function(response) {
       if (producto == 'error') {
         $('.alertAddProduct').html('<p style="color : red;">Error al agregar producto.</p>');
-
       }else {
         var info = JSON.parse(response);
-        $('.row'+info.producto_id+' .celExistencia').html(info.nueva_existencia);
+        $('.row'+info.producto_id+' .celStock').html(info.nueva_stock);
         $('.row'+info.producto_id+' .celPrecio').html(info.nuevo_precio);
         $('#txtCantidad').val('');
         $('#txtPrecio').val('');

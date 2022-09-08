@@ -20,8 +20,9 @@
 							<th>PRECIO</th>
 							<th>STOCK</th>
 							<th>IMAGEN</th>
+							<th>ANUNCIO</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
-							<th>ACCIONES</th>
+								<th>ACCIONES</th>
 							<?php } ?>
 						</tr>
 					</thead>
@@ -35,19 +36,27 @@
 							while ($data = mysqli_fetch_assoc($query)) { ?>
 								<tr>
 									<td><?php echo $data['codproducto']; ?></td>
-									<td><?php echo $data['descripcion']; ?></td>
+									<td><?php echo $data['nombre_producto']; ?></td>
 									<td><?php echo $data['precio']; ?></td>
-									<td><?php echo $data['existencia']; ?></td>
+									<td><?php echo $data['stock']; ?></td>
 									<td><img src="imagenes/<?php echo $data['imagen'] ?>" alt="" width="150px"></td>
-										<?php if ($_SESSION['rol'] == 1) { ?>
-									<td>
-										<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+									<?php if ($data['stock'] < 5) { ?>
+										<td>
+											<div class="alert alert-danger" role="alert">
+												Stock casi agotado !
+											</div>
+										</td> <?php } else { ?>
+										<td></td>
+									<?php } ?>
+									<?php if ($_SESSION['rol'] == 1) { ?>
+										<td>
+											<a href="editar_producto.php?id=<?php echo $data['codproducto']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
 
-										<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
-											<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
-										</form>
-									</td>
-										<?php } ?>
+											<form action="eliminar_producto.php?id=<?php echo $data['codproducto']; ?>" method="post" class="confirmar d-inline">
+												<button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i> </button>
+											</form>
+										</td>
+									<?php } ?>
 								</tr>
 						<?php }
 						} ?>
