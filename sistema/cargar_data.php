@@ -21,7 +21,7 @@ foreach ($fileContacts as $contact)
 foreach ($contactList as $contactData) 
 {
 	$conexion1->query("INSERT INTO producto 
-						(descripcion,
+						(nombre_producto,
 						 proveedor,
 						 precio,
 						 existencia

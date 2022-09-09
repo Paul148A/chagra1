@@ -26,15 +26,14 @@ $(document).ready(function(){
         success: function(response) {
         if (response != 0) {
           var info = JSON.parse(response);
-        //  $('#producto_id').val(info.codproducto);
-        //  $('.nameProducto').html(info.descripcion);
+        
 
           $('.bodyModal').html('<form action="" method="post" name="form_add_product" id="form_add_product" onsubmit="event.preventDefault(); sendDataProduct();">'+
             '<h1>Agregar Producto</h1><br>'+
-            '<h2 class="nameProducto">'+info.descripcion+'</h2>'+
+            '<h2 class="nameProducto">'+info.nombre_producto+'</h2>'+
             '<br>'+
             '<hr>'+
-            '<input type="number" name="stock" id="txtStock" placeholder="Stock" required><br>'+
+            '<input type="number" name="cantidad" id="txtCantidad" placeholder="Cantidad del Producto" required><br>'+
             '<input type="number" name="precio" id="txtPrecio" placeholder="Precio del Producto" required>'+
             '<input type="hidden" name="producto_id" id="producto_id" value="'+info.codproducto+'" required><br>'+
             '<input type="hidden" name="action" value="addProduct" required>'+
@@ -68,11 +67,11 @@ $('.del_product').click(function(e) {
     if (response != 0) {
       var info = JSON.parse(response);
     //  $('#producto_id').val(info.codproducto);
-    //  $('.nameProducto').html(info.descripcion);
+    //  $('.nameProducto').html(info.nombre_producto);
 
       $('.bodyModal').html('<form action="" method="post" name="form_del_product" id="form_del_product" onsubmit="event.preventDefault(); delProduct();">'+
         '<h2 style="color: red; font-size: 18px;">¿Estás seguro de eliminar el Producto</h2>'+
-        '<h2 class="nameProducto">'+info.descripcion+'</h2>'+
+        '<h2 class="nameProducto">'+info.nombre_producto+'</h2>'+
         '<hr>'+
         '<input type="hidden" name="producto_id" id="producto_id" value="'+info.codproducto+'" required><br>'+
         '<input type="hidden" name="action" value="delProduct" required>'+
@@ -233,8 +232,8 @@ $('#txt_cod_producto').keyup(function(e) {
     error: function(error) {
     }
   });
-  $('#txt_descripcion').html('-');
-  $('#txt_existencia').html('-');
+  $('#txt_nombre_producto').html('-');
+  $('#txt_stock').html('-');
   $('#txt_cant_producto').val('0');
   $('#txt_precio').html('0.00');
   $('#txt_precio_total').html('0.00');
@@ -538,9 +537,10 @@ function sendDataProduct() {
     success: function(response) {
       if (producto == 'error') {
         $('.alertAddProduct').html('<p style="color : red;">Error al agregar producto.</p>');
+
       }else {
         var info = JSON.parse(response);
-        $('.row'+info.producto_id+' .celStock').html(info.nueva_stock);
+        $('.row'+info.producto_id+' .celStock').html(info.nueva_Stock);
         $('.row'+info.producto_id+' .celPrecio').html(info.nuevo_precio);
         $('#txtCantidad').val('');
         $('#txtPrecio').val('');

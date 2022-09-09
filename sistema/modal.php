@@ -8,7 +8,7 @@ if (!empty($_POST)) {
   if ($_POST['action'] == 'infoProducto') {
       $data = "";
     $producto_id = $_POST['producto'];
-    $query = mysqli_query($conexion, "SELECT codproducto, descripcion, precio, existencia FROM producto WHERE codproducto = $producto_id");
+    $query = mysqli_query($conexion, "SELECT codproducto, nombre_producto, precio, stock FROM producto WHERE codproducto = $producto_id");
 
     $result = mysqli_num_rows($query);
     if ($result > 0) {
@@ -23,7 +23,7 @@ if (!empty($_POST)) {
   if ($_POST['action'] == 'delProduct') {
     if (empty($_POST['producto_id']) || !is_numeric($_POST['producto_id'])) {
       echo "error";
-    }else {
+    }else{
 
     $idproducto = $_REQUEST['producto_id'];
     $query_delete = mysqli_query($conexion, "UPDATE producto SET estado = 0 WHERE codproducto = $idproducto");
@@ -101,7 +101,7 @@ if ($_POST['action'] == 'addProductoDetalle') {
 
         $detalleTabla .='<tr>
             <td>'.$data['codproducto'].'</td>
-            <td colspan="2">'.$data['descripcion'].'</td>
+            <td colspan="2">'.$data['nombre_producto'].'</td>
             <td class="textcenter">'.$data['cantidad'].'</td>
             <td class="textright">'.$data['precio_venta'].'</td>
             <td class="textright">'.$precioTotal.'</td>
@@ -145,7 +145,7 @@ if ($_POST['action'] == 'searchForDetalle') {
     $token = md5($_SESSION['idUser']);
 
     $query = mysqli_query($conexion, "SELECT tmp.correlativo, tmp.token_user,
-      tmp.cantidad, tmp.precio_venta, p.codproducto, p.descripcion
+      tmp.cantidad, tmp.precio_venta, p.codproducto, p.nombre_producto
       FROM detalle_temp tmp INNER JOIN producto p ON tmp.codproducto = p.codproducto
       where token_user = '$token'");
     $result = mysqli_num_rows($query);
@@ -172,7 +172,7 @@ if ($_POST['action'] == 'searchForDetalle') {
 
         $detalleTabla .= '<tr>
             <td>'.$data['codproducto'].'</td>
-            <td colspan="2">'.$data['descripcion'].'</td>
+            <td colspan="2">'.$data['nombre_producto'].'</td>
             <td class="textcenter">'.$data['cantidad'].'</td>
             <td class="textright">'.$data['precio_venta'].'</td>
             <td class="textright">'.$precioTotal.'</td>
@@ -246,7 +246,7 @@ if ($_POST['action'] == 'delProductoDetalle') {
 
         $detalleTabla .= '<tr>
             <td>'.$data['codproducto'].'</td>
-            <td colspan="2">'.$data['descripcion'].'</td>
+            <td colspan="2">'.$data['nombre_producto'].'</td>
             <td class="textcenter">'.$data['cantidad'].'</td>
             <td class="textright">'.$data['precio_venta'].'</td>
             <td class="textright">'.$precioTotal.'</td>

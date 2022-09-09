@@ -10,7 +10,7 @@ if (empty($_REQUEST['id'])) {
     if (!is_numeric($id_producto)) {
         header("Location: lista_productos.php");
     }
-    $query_producto = mysqli_query($conexion, "SELECT codproducto, descripcion, proveedor, precio, existencia FROM producto WHERE codproducto = $id_producto");
+    $query_producto = mysqli_query($conexion, "SELECT codproducto, nombre_producto, proveedor, precio, stock FROM producto WHERE codproducto = $id_producto");
     $result_producto = mysqli_num_rows($query_producto);
 
     if ($result_producto > 0) {
@@ -60,7 +60,7 @@ if (!empty($_POST)) {
                 </div>
                 <div class="form-group">
                     <label for="precio">Cantidad de productos Disponibles</label>
-                    <input type="number" class="form-control" value="<?php echo $data_producto['existencia']; ?>" disabled>
+                    <input type="number" class="form-control" value="<?php echo $data_producto['stock']; ?>" disabled>
                 </div>
                 <div class="form-group">
                     <label for="precio">Nuevo Precio</label>

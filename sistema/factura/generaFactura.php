@@ -17,7 +17,7 @@
 		$result_venta = mysqli_fetch_assoc($ventas);
 		$clientes = mysqli_query($conexion, "SELECT * FROM cliente WHERE idcliente = $codCliente");
 		$result_cliente = mysqli_fetch_assoc($clientes);
-		$productos = mysqli_query($conexion, "SELECT d.nofactura, d.codproducto, d.cantidad, p.codproducto, p.descripcion, p.precio FROM detallefactura d INNER JOIN producto p ON d.nofactura = $noFactura WHERE d.codproducto = p.codproducto");
+		$productos = mysqli_query($conexion, "SELECT d.nofactura, d.codproducto, d.cantidad, p.codproducto, p.nombre_producto, p.precio FROM detallefactura d INNER JOIN producto p ON d.nofactura = $noFactura WHERE d.codproducto = p.codproducto");
 		require_once 'fpdf/fpdf.php';
 		$pdf = new FPDF('P', 'mm', array(80, 200));
 		$pdf->AddPage();
@@ -66,7 +66,7 @@
 		$pdf->Cell(15, 5, 'Total', 0, 1, 'L');
 		$pdf->SetFont('Arial', '', 7);
 		while ($row = mysqli_fetch_assoc($productos)) {
-			$pdf->Cell(42, 5, utf8_decode($row['descripcion']), 0, 0, 'L');
+			$pdf->Cell(42, 5, utf8_decode($row['nombre_producto']), 0, 0, 'L');
 			$pdf->Cell(8, 5, $row['cantidad'], 0, 0, 'L');
 			$pdf->Cell(15, 5, number_format($row['precio'], 2, '.', ','), 0, 0, 'L');
 			$importe = number_format($row['cantidad'] * $row['precio'], 2, '.', ',');

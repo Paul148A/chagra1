@@ -13,8 +13,8 @@ if (!empty($_POST)) {
     $proveedor = $_POST['proveedor'];
     $producto = $_POST['producto'];
     $precio = $_POST['precio'];
-    $cantidad = $_POST['cantidad'];    
-    $query_update = mysqli_query($conexion, "UPDATE producto SET descripcion = '$producto', proveedor= $proveedor, precio= $precio, existencia = $cantidad WHERE codproducto = $codproducto");
+    $stock = $_POST['stock'];    
+    $query_update = mysqli_query($conexion, "UPDATE producto SET nombre_producto = '$producto', proveedor= $proveedor, precio= $precio, stock = $stock WHERE codproducto = $codproducto");
 
     if ($query_update) {
       $alert = '<div class="alert alert-primary" role="alert">
@@ -37,7 +37,7 @@ if (empty($_REQUEST['id'])) {
   if (!is_numeric($id_producto)) {
     header("Location: lista_productos.php");
   }
-  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.descripcion, p.precio, p.existencia, pr.codproveedor, pr.proveedor FROM producto p INNER JOIN proveedor pr ON p.proveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
+  $query_producto = mysqli_query($conexion, "SELECT p.codproducto, p.nombre_producto, p.precio, p.stock, pr.codproveedor, pr.proveedor FROM producto p INNER JOIN proveedor pr ON p.proveedor = pr.codproveedor WHERE p.codproducto = $id_producto");
   $result_producto = mysqli_num_rows($query_producto);
   if ($result_producto > 0) {
     $data_producto = mysqli_fetch_array($query_producto);
@@ -47,9 +47,7 @@ if (empty($_REQUEST['id'])) {
 }
 ?>
 <!-- Begin Page Content -->
-<head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-</head>
+
 <div class="container-fluid">
 
   <div class="row">
@@ -83,7 +81,7 @@ if (empty($_REQUEST['id'])) {
             </div>
             <div class="form-group">
               <label for="producto">Producto</label>
-              <input type="text" class="form-control" placeholder="Ingrese nombre del producto" name="producto" id="producto" value="<?php echo $data_producto['descripcion']; ?>">
+              <input type="text" class="form-control" placeholder="Ingrese nombre del producto" name="producto" id="producto" value="<?php echo $data_producto['nombre_producto']; ?>">
 
             </div>
             <div class="form-group">
@@ -92,8 +90,8 @@ if (empty($_REQUEST['id'])) {
 
             </div>
             <div class="form-group">
-              <label for="existencia">Stock</label>
-              <input type="text" placeholder="Ingrese el Stock" class="form-control" name="cantidad" id="cantidad" value="<?php echo $data_producto['existencia']; ?>"><br>
+              <label for="stock">Stock</label>
+              <input type="text" placeholder="Ingrese el Stock" class="form-control" name="stock" id="stock" value="<?php echo $data_producto['stock']; ?>"><br>
             <input type="submit" value="Actualizar Producto" class="btn btn-danger">
           </form>
         </div>
