@@ -8,7 +8,7 @@ if (!empty($_POST)) {
               </div>';
   } else {
     $producto = $_POST['nombre_producto'];
-    $nombre_producto = $_POST['nombre_producto'];
+    $detalles = $_POST['detalles'];
     $proveedor = $_POST['proveedor'];
     $precio = $_POST['precio'];
     $stock = $_POST['stock'];
@@ -17,7 +17,7 @@ if (!empty($_POST)) {
     $barras = $_POST['codbar'];
     $categoria = $_POST['categoria'];
     $estado = $_POST['estado'];
-    $query_insert = mysqli_query($conexion, "INSERT INTO `producto`( `nombre_producto`, `proveedor`, `precio`, `stock`, `imagen`, `codigobar`, `categoria`, `estado`)values ('$producto', '$proveedor', '$precio', '$stock', '$img', '$barras', '$categoria', '$estado')");
+    $query_insert = mysqli_query($conexion, "INSERT INTO `producto`( `nombre_producto`, `detalles`, `proveedor`, `precio`, `stock`, `imagen`, `codigobar`, `categoria`, `estado`)values ('$producto', '$detalles', '$proveedor', '$precio', '$stock', '$img', '$barras', '$categoria', '$estado')");
     if ($query_insert) {
       move_uploaded_file($temp, 'imagenes/' . $img);
       $alert = '<div class="alert alert-primary" role="alert">
@@ -52,15 +52,16 @@ if (!empty($_POST)) {
         <div class="card-header bg-danger text-white">
           Datos del nuevo producto
         </div>
-        <form action="" method="post" autocomplete="off" enctype="multipart/form-data" class="card-body p-2">
 
+        <form action="" method="post" autocomplete="off" enctype="multipart/form-data" class="card-body p-2">
+        <?php echo isset($alert) ? $alert : ''; ?>
           <div class="form-group">
             <label for="nombre_producto">Producto</label>
             <input type="text" placeholder="Ingrese el nombre del producto" class="form-control" name="nombre_producto" id="nombre_producto">
           </div>
           <div class="form-group">
-            <label for="nombre_producto">Descripción</label>
-            <textarea placeholder="Ingrese la nombre del producto" name="nombre_producto" id="nombre_producto" class="form-control"></textarea>
+            <label for="detalles">Descripción</label>
+            <input type="text" placeholder="Ingrese los detalles del producto" class="form-control" name="detalles" id="detalles">
           </div><br>
           <hr>
           <div class="row">
@@ -122,7 +123,6 @@ if (!empty($_POST)) {
                 ?>
               </select>
             </div>
-            <?php echo isset($alert) ? $alert : ''; ?>
             <div class="form-group col-4">
               <label>Proveedor</label>
               <?php

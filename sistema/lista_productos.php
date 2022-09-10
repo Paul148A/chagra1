@@ -20,7 +20,7 @@
 							<th>PRECIO</th>
 							<th>STOCK</th>
 							<th>IMAGEN</th>
-							<th>ANUNCIO</th>
+							<th>NOTIFICACION</th>
 							<?php if ($_SESSION['rol'] == 1) { ?>
 								<th>ACCIONES</th>
 							<?php } ?>

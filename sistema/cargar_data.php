@@ -1,5 +1,4 @@
 <?php
-
 include('../conexiondata.php');
 include "../conexion.php";
 
@@ -11,13 +10,11 @@ $fileContacts = file_get_contents($fileContacts['tmp_name']);
 $fileContacts = explode("\n", $fileContacts);
 $fileContacts = array_filter($fileContacts); 
 
-// preparar contactos (convertirlos en array)
 foreach ($fileContacts as $contact) 
 {
 	$contactList[] = explode(",", $contact);
 }
 
-// insertar contactos
 foreach ($contactList as $contactData) 
 {
 	$conexion1->query("INSERT INTO producto 
@@ -27,7 +24,6 @@ foreach ($contactList as $contactData)
 						 existencia
 						 )
 						 VALUES
-
 						 ('{$contactData[0]}',
 						  $proveedor, 
 						  '{$contactData[1]}',
