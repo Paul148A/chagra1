@@ -50,6 +50,7 @@ if (!empty($_POST)) {
 
     <!-- Content Row -->
     <div class="row">
+        
         <div class="col-lg-6 m-auto">
             <form action="" method="post" autocomplete="off">
                 <?php echo isset($alert) ? $alert : ''; ?>

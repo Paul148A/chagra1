@@ -125,7 +125,7 @@ if (empty($_REQUEST['id'])) {
                 while ($categoria = mysqli_fetch_array($query_categoria)) {
                   // code...
               ?>
-                  <option value="<?php echo $categoria['id']; ?>"><?php echo $categoria['nombre']; ?></option>
+                  <option value="<?php echo $categoria['nombre']; ?>"><?php echo $categoria['nombre']; ?></option>
               <?php
                 }
               }
@@ -145,7 +145,7 @@ if (empty($_REQUEST['id'])) {
                 while ($estado = mysqli_fetch_array($query_estado)) {
                   // code...
               ?>
-                  <option value="<?php echo $estado['id']; ?>"><?php echo $estado['nombre']; ?></option>
+                  <option value="<?php echo $estado['nombre']; ?>"><?php echo $estado['nombre']; ?></option>
               <?php
                 }
               }
