@@ -64,7 +64,7 @@ include "../conexion.php";
         var Form = new FormData($('#filesForm')[0]);
         $.ajax({
 
-            url: "cargar_data.php",
+            url: "cargar_data1.php",
             type: "post",
             data : Form,
             processData: false,

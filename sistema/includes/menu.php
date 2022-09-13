@@ -123,6 +123,22 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
             <i class="fas fa-user"></i>
+            Categorias
+          </a>
+          <ul class="dropdown-menu">
+            <a class="dropdown-item" href="registro_categoria.php">Nueva Categoria</a>
+            <a class="dropdown-item" href="lista_categoria.php">Categoria</a>
+          </ul>
+        </li>
+      <?php } ?>
+    </ul>
+
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <?php if ($_SESSION['rol'] == 1) { ?>
+        <!-- Nav Item - Usuarios Collapse Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="fas fa-user"></i>
             Usuarios
           </a>
           <ul class="dropdown-menu">
