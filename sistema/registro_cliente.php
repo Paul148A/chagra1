@@ -12,7 +12,6 @@ if (!empty($_POST)) {
         $telefono = $_POST['telefono'];
         $direccion = $_POST['direccion'];
         $usuario_id = $_SESSION['idUser'];
-
         $result = 0;
         if (is_numeric($dni) and $dni != 0) {
             $query = mysqli_query($conexion, "SELECT * FROM cliente where dni = '$dni'");
@@ -50,28 +49,33 @@ if (!empty($_POST)) {
 
     <!-- Content Row -->
     <div class="row">
-        
+
         <div class="col-lg-6 m-auto">
-            <form action="" method="post" autocomplete="off">
-                <?php echo isset($alert) ? $alert : ''; ?>
-                <div class="form-group">
-                    <label for="dni">Dni</label>
-                    <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control">
+            <div class="card">
+                <div class="card-header bg-danger text-white">
+                    Ingrese los datos del nuevo cliente
                 </div>
-                <div class="form-group">
-                    <label for="nombre">Nombre</label>
-                    <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nombre" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="telefono">Teléfono</label>
-                    <input type="number" placeholder="Ingrese Teléfono" name="telefono" id="telefono" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="direccion">Dirección</label>
-                    <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direccion" class="form-control">
-                </div><br>
-                <input type="submit" value="Guardar Cliente" class="btn btn-danger">
-            </form>
+                <form action="" method="post" autocomplete="off" enctype="multipart/form-data" class="card-body p-2">
+                    <?php echo isset($alert) ? $alert : ''; ?>
+                    <div class="form-group">
+                        <label for="dni">Dni</label>
+                        <input type="number" placeholder="Ingrese dni" name="dni" id="dni" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" placeholder="Ingrese Nombre" name="nombre" id="nombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="number" placeholder="Ingrese Teléfono" name="telefono" id="telefono" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="direccion">Dirección</label>
+                        <input type="text" placeholder="Ingrese Direccion" name="direccion" id="direccion" class="form-control">
+                    </div><br>
+                    <input type="submit" value="Guardar Cliente" class="btn btn-danger">
+                </form>
+            </div>
         </div>
     </div>
 

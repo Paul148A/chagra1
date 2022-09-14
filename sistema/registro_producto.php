@@ -42,7 +42,7 @@ if (!empty($_POST)) {
   </div>
   <div class="d-sm-flex justify-content-end ">
     <a href="lista_productos.php" class="btn btn-danger mx-3">Regresar</a>
-    <a href="subir_excel.php" class="btn btn-success">Subir masivamente</a>
+    <a href="subir_excel.php" class="btn btn-success"><i class="fa fa-table"></i> Subir masivamente</a>
   </div>
 
   <!-- Content Row -->

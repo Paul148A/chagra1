@@ -47,7 +47,6 @@ mysqli_close($conexion);
     </div>
     <div class="d-sm-flex justify-content-end mb-4">
         <a href="lista_productos.php" class="btn btn-danger mx-3">Regresar</a>
-        <a href="subir_excel.php" class="btn btn-success">Subir masivamente</a>
     </div>
     <!-- Content Row -->
     <div class="row">

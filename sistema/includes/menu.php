@@ -1,6 +1,3 @@
-<head>
-  <link rel="stylesheet" href="css/styles2.css">
-</head>
 <!-- Sidebar - Brand -->
 <nav class="nav">
   <li class="nav-item">
@@ -106,7 +103,7 @@
         <!-- Nav Item - Usuarios Collapse Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
-            <i class="fas fa-user"></i>
+          <i class="fa fa-solid fa-hand-holding"></i>
             Proveedores
           </a>
           <ul class="dropdown-menu">
@@ -122,7 +119,7 @@
         <!-- Nav Item - Usuarios Collapse Menu -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle text-white" href="#" role="button" data-bs-toggle="dropdown">
-            <i class="fas fa-user"></i>
+            <i class="fa fa-list"></i>
             Categorias
           </a>
           <ul class="dropdown-menu">
@@ -151,6 +148,5 @@
     </ul>
   </div>
   </div>
-  <link rel="stylesheet" href="css/styles2.css">
 
 </nav><br>
