@@ -1,0 +1,15 @@
+.bgred{
+    background-color: rgb(233, 39, 39);
+}
+
+.copy{
+    color: #eff313;
+    font-weight: 300;
+}
+
+.hr1{
+    background-color: #eff313;
+    width: 60px;
+    height: 5px;
+    
+}

@@ -8,7 +8,7 @@
   <title>Document</title>
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="sistema/css/styles8.css">
+  <link rel="stylesheet" href="sistema/css/styles10.css">
   <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -17,7 +17,7 @@
 </head>
 
 <body>
-  <nav class="navw navbar navbar-expand-lg bg">
+  <nav class="navw navbar navbar-expand-lg bg" id="inicio">
     <div class="container-fluid">
       <ul>
         <br>
@@ -65,23 +65,13 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="sistema/img/imgcar1.jpg" height="700" data-bs-interval="8000" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-md-block card col-md-4 mx-auto">
-          <h6 class="colorb"><span class="material-symbols-outlined colorb">liquor</span>Descuentos todos los dias<span class="material-symbols-outlined colorb">Nightlife</span></h6>
-        </div>
+        <img src="sistema/img/chag1.jpeg" height="700" data-bs-interval="8000" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="sistema/img/imgcar2.jpg" height="700" data-bs-interval="2000" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-md-block card col-md-4 mx-auto">
-          <h6 class="colorb"><span class="material-symbols-outlined colorb">Paid</span>El 3x2 del Chagra<span class="material-symbols-outlined colorb">Paid</span></h6>
-          <p class="colorb">Solo en el Chagra lleva 3 productos de tu eleccion y paga 2 !</p>
-        </div>
+        <img src="sistema/img/fot2.jpg" height="700" data-bs-interval="2000" class="d-block w-100" alt="...">
       </div>
       <div class="carousel-item">
-        <img src="sistema/img/imgcar3.jpg" height="700" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-md-block card col-md-5 mx-auto">
-          <h6 class="colorb"><span class="material-symbols-outlined colorb">Diamond</span>Llevate algo adicional con La Yapita del Chagra<span class="material-symbols-outlined colorb">Diamond</span></h6>
-        </div>
+        <img src="sistema/img/fot3.jpg" height="700" class="d-block w-100" alt="...">
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -175,12 +165,54 @@
         </div>
       </div>
     </div><br><br>
-  </div><br>
+  </div><br><br>
 
   <!----------------------------------------------------------------Beneficios------------------------------------------------------>
-  
-
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-4 card mx-auto cardb">
+        <div class="card-body"><br><br>
+          <div class="hr1"></div><br>
+          <h1 class="colorb">DELIVERY</h1><br>
+          <h4>Por tus compras mayores</h4>
+          <h4>a 35$, tu envio</h4>
+          <h4>es gratuito</h4><br>
+          <a href="https://api.whatsapp.com/message/HVILSBPMSAR6H1?autoload=1&app_absent=0"><button class="conta">099 512 3961</button></a><br>
+        </div><br>
+        <img src="sistema/img/vg.png" class="bgopacity">
+      </div>
+      <div class="col-4 card mx-auto cardc">
+        <div class="card-body mx-auto">
+            <img src="sistema/img/cronom.png">
+        </div>
+        <div class="card-body">
+        <h1 class="colort">Compras Seguras</h1><br>
+            <h3 class="letr">Sabemos que tu tiempo</h3>
+            <h3 class="letr">vale mucho!</h3>
+            <h3 class="letr">Nosotros podemos hacer la</h3>
+            <h3 class="letr">compra completa por ti!</h3>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br>
+<!-------------------------------------------------------------------------Ubicación--------------------------------------------------------------->
+  <div class="container-fluid gray1 bgim">
+    <div class="row">
+      <div class="col-5 mx-auto"><br><br><br><br>
+        <img src="sistema/img/sucur.png" class="hvimg">
+      </div>
+      <div class="col-5 mx-auto direc">
+      <div class="hr2 mx-auto"></div><br>
+        <h3 class="f text-center">Sucursal 1</h3><br>
+        <h1>Av. Cristobal Colón y Barriga</h1>
+        <h3 class="f text-center">(Machachi)</h3>
+      </div>
+    </div><br><br>
+  </div>
+<!-----------------------------------------------------------------------------------footer---------------------------------------------------------->
 </body>
+<?php include "sistema/includes/pie.php" ?>
 <script src="https://unpkg.com/feather-icons"></script>
 <script>
   feather.replace({

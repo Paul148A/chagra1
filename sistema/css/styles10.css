@@ -66,12 +66,12 @@
 }
 
 .gray{
-    background-color: rgb(235, 231, 231);
+    background-color: rgb(221, 217, 217);
 }
 
 .bgopacity{
-    filter:alpha(opacity=70);
-    -moz-opacity:.70;opacity:.70;
+    filter:alpha(opacity=60);
+    -moz-opacity:.60;opacity:.60;
 }
 .bgnone{
     background-color: unset;
@@ -101,7 +101,7 @@
 }
 
 .boton.cinco:hover {
-	background: #eff313;
+	background: #babd10;
 }
 
 .boton.cinco:hover .icono {
@@ -118,7 +118,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 30px;
-	background: orange;
+	background: rgb(29, 28, 28);
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
@@ -180,7 +180,7 @@
 	align-items: center;
 	justify-content: center;
 	height: 30px;
-	background: orange;
+	background: rgb(29, 28, 28);
 	color: #fff;
 	font-family: 'Roboto', sans-serif;
 	font-size: 20px;
@@ -198,4 +198,85 @@
 	position: relative;
 	z-index: 2;
 	transition: .3s ease all;
+}
+
+.conta{
+    background-color: rgb(233, 39, 39);
+    color: white;
+    border-style: none;
+    padding: 6px;
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 15px;
+	transition: .3s ease all;
+
+}
+
+.conta:hover{
+    background-color: #eff313;
+	transition: .3s ease all;
+}
+
+.cardb{
+    background-color: rgb(243, 241, 241);
+    border-style: none;
+	transition: .5s ease all;
+
+}
+
+.cardb:hover{
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+	transition: .5s ease all;
+
+}
+
+.hr1{
+    background-color: gray;
+    width: 80px;
+    height: 5px;
+}
+
+.cardc{
+    border-style: none;
+    background-color: rgb(233, 39, 39);
+	transition: .5s ease all;
+}
+.cardc:hover{
+    box-shadow: 5px 5px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-3%);
+	transition: .5s ease all;
+}
+
+.letr{
+    color: white;
+    font-weight: 200;
+}
+
+.gray1{
+    background: url(../img/bgm1.png);
+    background-color: rgb(221, 217, 217);
+    background-repeat: no-repeat;
+}
+
+.direc{
+    padding-top: 200px;
+}
+
+.hr2{
+	background-color: gray;
+    width: 180px;
+    height: 5px;
+}
+
+.hvimg{
+	transition: .3s ease-in-out;
+	width: 80%;
+	height: 80%;
+}
+
+.hvimg:hover{
+	width: 85%;
+	height: 85%;
+	transition: .3s ease-in-out;
 }
