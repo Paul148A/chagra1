@@ -298,3 +298,29 @@
 	transition: .2s ease-in-out;
     background-color: #eff313;
 }
+
+.prodcard{
+    border-radius: 10px;
+	border-style: none; 
+	background-image:url(../img/fondo.jpg);
+	background-size: cover;
+}
+
+.cardp{
+    border-style: none;
+	transition: .5s ease all;
+}
+
+.cardp:hover{
+    box-shadow: 5px 5px 12px rgb(233, 39, 39);
+    transform: translateY(-3%);
+	transition: .5s ease all;
+
+}
+
+.imgcardp{
+    max-width: 200px;
+    min-width: 200px;
+    max-height: 330px;
+    min-height: 330px;
+}

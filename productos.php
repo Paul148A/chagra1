@@ -14,7 +14,7 @@ include "conexion.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="sistema/css/styles12.css">
+    <link rel="stylesheet" href="sistema/css/styles13.css">
     <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -46,8 +46,39 @@ include "conexion.php";
         </div>
     </nav>
     <!--------------------------------------------------------------------------------------Navegador de productos---------------------------------------->
-<?php include "sistema/includes/nav.php" ?>
+    <?php include "sistema/includes/nav.php" ?>
+    <!------------------------------------------------------------------------------------------Cards--------------------------------------------------------------------------->
     
+    <div class="container-fluid">
+        <div class="row">
+            <?php
+            $query = mysqli_query($conexion, "SELECT * FROM producto");
+            $result = mysqli_num_rows($query);
+            if ($result > 0) {
+                while ($data = mysqli_fetch_assoc($query)) { ?>
+                    <div class="col-3">
+                        <div class="card cardp">
+                            <div class="card-header prodcard">
+                                <img src="sistema/imagenes/<?php echo $data['imagen'] ?>" width="200" style="max-width: 200;" class="rounded mx-auto d-block pt-5 pb-5 imgcardp">
+                            </div>
+                            <div class="card-body">
+                                <div class="hr1"></div><br>
+                                <h2><?php echo $data['nombre_producto'] ?></h2>
+                                <?php
+                                 $categ = mysqli_query($conexion, "SELECT * FROM categoria");
+                                 $data_categoria = mysqli_fetch_assoc($categ);
+                                 $categdata = mysqli_query($conexion, "SELECT nombre FROM categoria WHERE id = '{$data['categoria']}'");
+                                 $categoria = mysqli_fetch_assoc($categdata);
+                                ?>
+                                <h5 style="color: gray;"><?php echo $categoria['nombre'] ?></h5>
+                                <h4 style="color: red;"><?php echo $data['precio'] ?>$</h4>
+                            </div>
+                        </div>
+                    </div>
+            <?php }} ?>
+        </div>
+        <hr>
+    </div><br>
 </body>
 <?php include "sistema/includes/pie.php" ?>
 <script src="https://unpkg.com/feather-icons"></script>
