@@ -8,7 +8,7 @@
   <title>Document</title>
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="sistema/css/styles10.css">
+  <link rel="stylesheet" href="sistema/css/styles12.css">
   <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,8 @@
           <ion-icon name="logo-tiktok"></ion-icon>
         </a>
       </ul>
-      <ul><br>
-        <img src="sistema/img/removebgchagra.png" width="180px" alt="" style="margin-right: 60px;">
+      <img src="sistema/img/removebgchagra.png" width="180px" alt="" style="margin-right: 60px;">
+      <ul><br>  
         <strong class="navbar-text text" style="margin-right: 6px;">
           Contactanos:
         </strong>
@@ -44,13 +44,9 @@
       <ul>
         <p style="font-family: 'Dancing Script', cursive; margin-left: 57px;" class="colort fontz">Aquí si hay ahorro !!</p>
       </ul>
+
       <ul>
-        <form class="d-flex col-lg-11" role="search">
-          <input class="form-control me-2" style="width: 480px;" type="search" placeholder="Productos con descuentos siempre !!" aria-label="Search">
-          <button class="btn btn-outline-light"><i data-feather="search"></i></button>
-        </form>
-      </ul>
-      <ul>
+        <a href="productos.php" class="btn colort">Productos</a>
         <a href="sistema/quienes.php" class="btn colort">Quienes Somos</a>
         <a href="sistema/index.php" class="btn colort">Iniciar Sesión</a>
       </ul>
@@ -183,34 +179,34 @@
       </div>
       <div class="col-4 card mx-auto cardc">
         <div class="card-body mx-auto">
-            <img src="sistema/img/cronom.png">
+          <img src="sistema/img/cronom.png">
         </div>
         <div class="card-body">
-        <h1 class="colort">Compras Seguras</h1><br>
-            <h3 class="letr">Sabemos que tu tiempo</h3>
-            <h3 class="letr">vale mucho!</h3>
-            <h3 class="letr">Nosotros podemos hacer la</h3>
-            <h3 class="letr">compra completa por ti!</h3>
+          <h1 class="colort">Compras Seguras</h1><br>
+          <h3 class="letr">Sabemos que tu tiempo</h3>
+          <h3 class="letr">vale mucho!</h3>
+          <h3 class="letr">Nosotros podemos hacer la</h3>
+          <h3 class="letr">compra completa por ti!</h3>
         </div>
       </div>
     </div>
   </div>
   <br><br>
-<!-------------------------------------------------------------------------Ubicación--------------------------------------------------------------->
+  <!-------------------------------------------------------------------------Ubicación--------------------------------------------------------------->
   <div class="container-fluid gray1 bgim">
     <div class="row">
       <div class="col-5 mx-auto"><br><br><br><br>
         <img src="sistema/img/sucur.png" class="hvimg">
       </div>
       <div class="col-5 mx-auto direc">
-      <div class="hr2 mx-auto"></div><br>
+        <div class="hr2 mx-auto"></div><br>
         <h3 class="f text-center">Sucursal 1</h3><br>
         <h1>Av. Cristobal Colón y Barriga</h1>
         <h3 class="f text-center">(Machachi)</h3>
       </div>
     </div><br><br>
   </div>
-<!-----------------------------------------------------------------------------------footer---------------------------------------------------------->
+  <!-----------------------------------------------------------------------------------footer---------------------------------------------------------->
 </body>
 <?php include "sistema/includes/pie.php" ?>
 <script src="https://unpkg.com/feather-icons"></script>

@@ -280,3 +280,21 @@
 	height: 85%;
 	transition: .3s ease-in-out;
 }
+
+.bgnav{
+	background-color: rgb(233, 39, 39);
+}
+
+.btnnav{
+    padding-top: 16px;
+    padding-bottom: 12px;
+    color: white;
+    border-style: none;
+    background-color: rgb(233, 39, 39);
+	transition: .2s ease-in-out;
+}
+
+.btnnav:hover{
+	transition: .2s ease-in-out;
+    background-color: #eff313;
+}
