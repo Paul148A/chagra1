@@ -8,7 +8,7 @@
   <title>Document</title>
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="sistema/css/styles13.css">
+  <link rel="stylesheet" href="sistema/css/styles17.css">
   <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,8 +27,7 @@
           <ion-icon name="logo-tiktok"></ion-icon>
         </a>
       </ul>
-      <img src="sistema/img/removebgchagra.png" width="180px" alt="" style="margin-right: 60px;">
-      <ul><br>  
+      <ul><br>
         <strong class="navbar-text text" style="margin-right: 6px;">
           Contactanos:
         </strong>
@@ -39,16 +38,26 @@
     </div>
     </div>
   </nav>
-  <nav class="navbar bg-danger ali">
+  <nav class="navbar bg-danger">
     <div class="container-fluid">
       <ul>
-        <p style="font-family: 'Dancing Script', cursive; margin-left: 57px;" class="colort fontz">Aquí si hay ahorro !!</p>
+        <p style="font-family: 'Dancing Script', cursive; margin-left: 57px;" class="colort fontz mt-3">Aquí si hay ahorro !!</p>
       </ul>
-
+      <img src="sistema/img/chagraf.png" width="180px" class="mx-auto d-block">
       <ul>
-        <a href="productos.php" class="btn colort">Productos</a>
-        <a href="sistema/quienes.php" class="btn colort">Quienes Somos</a>
-        <a href="sistema/index.php" class="btn colort">Iniciar Sesión</a>
+        <a href="productos.php" style="text-decoration: none;">
+          <div class="colort1">Productos</div>
+        </a>
+      </ul>
+      <ul>
+        <a href="sistema/quienes.php" style="text-decoration: none;">
+          <div class="colort1">Quienes Somos</div>
+        </a>
+      </ul>
+      <ul>
+        <a href="sistema/index.php" style="text-decoration: none;">
+          <div class="colort1">Iniciar Sesión</div>
+        </a>
       </ul>
     </div>
   </nav>
@@ -71,8 +80,8 @@
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
+      <span class="carousel-control-prev-icon"  aria-hidden="true"></span>
+      <span class="visually-hidden" >Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -193,7 +202,7 @@
   </div>
   <br><br>
   <!-------------------------------------------------------------------------Ubicación--------------------------------------------------------------->
-  <div class="container-fluid gray1 bgim">
+  <div class="container-fluid gray1">
     <div class="row">
       <div class="col-5 mx-auto"><br><br><br><br>
         <img src="sistema/img/sucur.png" class="hvimg">

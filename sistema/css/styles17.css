@@ -11,16 +11,30 @@
 }
 
 .navw {
-    margin-top: -12px;
-    margin-bottom: -9px;
-}
-
-.ali {
-    margin-bottom: -15px;
+    height: 35px;
 }
 
 .colort {
+    
+    text-decoration: none;
     color: white;
+}
+
+
+.colort1 {
+    text-decoration: none;
+    color: white;
+    transition: .1s ease-in;
+    padding: 10px;
+}
+
+.colort1:hover{
+    color: #eff313;
+    transition: .1s ease-in;
+    border-style: solid;
+    border-top: #eff313;
+    border-left: #eff313;
+    border-right: #eff313;
 }
 
 .colorb {
@@ -321,6 +335,29 @@
 .imgcardp{
     max-width: 200px;
     min-width: 200px;
-    max-height: 330px;
-    min-height: 330px;
+    max-height: 300px;
+    min-height: 300px;
+}
+
+.selectc{
+    padding: 2px;
+	border-style: none;
+    color: rgb(73, 72, 72);
+    background-color: #ffffff;
+    margin-right: 10px;
+    border-radius: 2px;
+}
+
+.optionc{
+    border-style: none;
+}
+
+.butonpr{
+    border-radius: 2px;
+    padding-top: 2px;
+    border-style: none;
+    background-color: #eff313;
+    color: rgb(73, 72, 72);
+    margin-left: -3px;
+    margin-right: -3px;
 }
