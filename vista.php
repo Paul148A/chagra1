@@ -36,7 +36,7 @@ if ($id == '' || $token == '') {
     <title>Document</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="sistema/css/styles19.css">
+    <link rel="stylesheet" href="sistema/css/styles21.css">
     <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,8 +64,10 @@ if ($id == '' || $token == '') {
                 </span>
             </ul>
         </div>
-        </div>
     </nav><br>
+    <div class="col-11" align="end">
+        <a href="carrito.php"><button class="buttoncarrito">Mi carrito <br><span class="material-symbols-outlined iconcart">add_shopping_cart</span><br><span id="num_cart"><?php echo $num_cart;?></span></button></a>
+    </div><br>
     <div class=" vistap container-lg card">
         <div class="row">
             <div class="col-lg-5 bgim">
@@ -88,7 +90,7 @@ if ($id == '' || $token == '') {
                             </button>
                         </div>
                         <div class="col-2">
-                            <h4 id="contar" class="text-center">0</h4>
+                            <h4 id="cant" name="cant" class="text-center">1</h4>
                         </div>
                         <div class="col-3">
                             <button id="mas" class="bcont">
@@ -98,10 +100,11 @@ if ($id == '' || $token == '') {
                             </button>
                         </div>
                     </div>
-                </div><hr>
+                </div>
+                <hr>
                 <div class="row">
                     <div class="col-5 mx-auto">
-                        <button class="carrito">Agregar al carrito <span class="material-symbols-outlined">add_shopping_cart</span></button>
+                        <button class="carrito" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>', cant)">Agregar al carrito <span class="material-symbols-outlined">add_shopping_cart</span></button>
                     </div>
                     <div class="col-5 mx-auto" align="end">
                         <a href="productos.php"><button class="back"><span class="material-symbols-outlined">arrow_back</span></button></a>
@@ -155,32 +158,60 @@ if ($id == '' || $token == '') {
     })
 </script>
 <script>
-    const contador = document.getElementById("contar");
+    const cant = document.getElementById("cant");
     const sumar = document.getElementById("mas");
     const menos = document.getElementById("menos");
-    const stock = <?php echo $stock;?>;
+    const stock = <?php echo $stock; ?>;
 
-    let numero = 0;
+    let numero = 1;
 
     sumar.addEventListener("click", () => {
         if (numero < stock && numero < 9) {
             numero++;
-            contador.innerHTML = numero;
+            cant.innerHTML = numero;
         } else {
-            
+
         }
     });
 
     menos.addEventListener("click", () => {
-        if (numero == 0) {
+        if (numero == 1) {
 
         } else {
             numero--;
-            contador.innerHTML = numero;
+            cant.innerHTML = numero;
         }
     });
+
+    function addProducto(id, token, cant) {
+        let url = 'carrito.php';
+        let url2 = 'checkout.php';
+        let formData = new FormData();
+        formData.append('id', id)
+        formData.append('token', token)
+        formData.append('cant', numero)
+
+        fetch(url2, {
+            method: 'POST',
+            body: formData,
+            mode: 'cors'
+        }).then(response => response.json())
+        
+        fetch(url, {
+            method: 'POST',
+            body: formData,
+            mode: 'cors'
+        }).then(response => response.json()).then(data => {
+            if (data.ok) {
+                alert('Producto agregado correctamente !')
+                let elemento = document.getElementById("num_cart")
+                elemento.innerHTML = data.numero
+            }
+        })
+    }
 </script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <!-- JavaScript Bundle with Popper -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

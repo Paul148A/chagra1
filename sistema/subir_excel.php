@@ -6,7 +6,6 @@ include "../conexion.php";
 
 <html lang="es">
 	<head> 
-		<title>ITIC TUTORIALES</title>
 		
 
 

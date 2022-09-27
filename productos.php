@@ -1,8 +1,8 @@
 <?php
 include "conexion.php";
 include "token.php";
-?>
 
+?>
 
 
 <!DOCTYPE html>
@@ -14,7 +14,7 @@ include "token.php";
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="sistema/css/styles19.css">
+    <link rel="stylesheet" href="sistema/css/styles21.css">
     <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -69,6 +69,9 @@ include "token.php";
             </div>
             <div class="col-4">
                 <a href="index1.php"><img src="sistema/img/chagraf.png" width="180px" class="mx-auto d-block"></a>
+            </div>
+            <div class="col-4" align="center">
+                <a href="checkout.php"><button class="buttoncarrito">Mi carrito <br><span class="material-symbols-outlined iconcart">add_shopping_cart</span><br><span id="num_cart"><?php echo $num_cart;?></span></button></a>
             </div>
         </div>
         <br>

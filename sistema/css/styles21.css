@@ -442,3 +442,30 @@
     min-height: 30px;
 }
 
+.buttoncarrito{
+    border-style: none;
+    background-color: rgb(58, 241, 58);
+    color: #ece8e8;
+    border-radius: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
+    transition: .3s ease-in-out;
+}
+
+.buttoncarrito:hover{
+    background-color: rgb(17, 161, 17);
+    color: #ffffff;
+    transition: .3s ease-in-out;
+}
+
+.buttoncarritosolo{
+    border-style: none;
+    background-color: rgb(58, 241, 58);
+    color: #ece8e8;
+    border-radius: 7px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+
+
