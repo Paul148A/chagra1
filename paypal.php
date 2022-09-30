@@ -10,7 +10,7 @@ $lista_carrito = array();
 
 if ($productos != null) {
     foreach ($productos as $clave => $cantidad) {
-        $sql = $conexion1->prepare("SELECT codproducto, nombre_producto, detalles, precio, $cantidad as cantidad FROM producto WHERE codproducto=?");
+        $sql = $conexion1->prepare("SELECT codproducto, nombre_producto, precio, $cantidad as cantidad FROM producto WHERE codproducto=?");
         $sql->execute([$clave]);
         $lista_carrito[] = $sql->fetch(PDO::FETCH_ASSOC);
     }
@@ -29,6 +29,7 @@ if ($productos != null) {
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://www.paypal.com/sdk/js?client-id=<?php echo CLIENT_ID?>&currency=<?php echo CURRENCY?>"></script>
 </head>
 
 <main>
@@ -55,33 +56,30 @@ if ($productos != null) {
     <!---------------------------------------------------------------------------------productos del carrito------------------------------->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-10">
+            <div class="col-4">
+                <div class="hr1"></div><br>
+                <h3>Datos de la preventa</h3><br>
+                <div class="hr1"></div><br><br><br>
+                <h6>Asegurate de tener todos tus productos en orden antes de elegir un metodo de pago!</h6><br>
+                <div class="hr1"></div><br>
+            </div>
+            <div class="col-6">
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th><b>Producto</b></th>
-                            <th><b>Descripción</b></th>
-                            <th><b>Precio/u</b></th>
-                            <th><b>Cantidad</b></th>
                             <th><b>Subtotal</b></th>
-                            <th><b>Acciones</b></th>
                         </tr>
                     </thead>
                     <tbody class="table-group-divider">
                         <?php if ($lista_carrito == null) {
-                            echo '<tr>
-                            <td colspan="6" class="text-center"><b>Aun no hay productos en tu carrito!</b></td>
-                            </tr>
-                            <tr align="center">
-                            <td colspan="6"><a href="productos.php"><button class="back">Ver Productos</button></a></td>
-                            </tr>';
+                            echo '<tr><td colspan="5" class="text-center"><b>Aun no hay productos en tu carrito!</b></td></tr>';
                         } else {
                             $total = 0;
                             foreach ($lista_carrito as $producto) {
                                 $_id = $producto['codproducto'];
                                 $nombre = $producto['nombre_producto'];
                                 $precio = $producto['precio'];
-                                $detalles = $producto['detalles'];
                                 $cant = $producto['cantidad'];
                                 $subtotal = $cant * $precio;
                                 $total += $subtotal;
@@ -89,16 +87,14 @@ if ($productos != null) {
                         ?>
                                 <tr>
                                     <td><?php echo $nombre; ?></td>
-                                    <td><?php echo $detalles; ?></td>
-                                    <td><?php echo $precio; ?> $</td>
-                                    <td><?php echo $cant; ?> unidad/es</td>
                                     <td><?php echo number_format($subtotal, 2, '.', ','); ?> $</td>
-                                    <td><a href="#" id="eliminar" class="btn btn-warning btn-sm" data-bs-id="<?php echo $_id; ?>" data-bs-toggle="modal" data-bs-target="#eliminaModal" style="color: white;"><span class="material-symbols-outlined">delete</span></a></td>
                                 </tr>
                             <?php } ?>
                     </tbody>
                 <?php } ?>
-                </table>
+                </table><br><br>
+                <div class="siz colorb"></div><br>
+                <div id="paypal-button-container"></div>
             </div>
             <div class="col-2">
                 <div>
@@ -106,21 +102,16 @@ if ($productos != null) {
                 </div><br><br>
                 <div class="hr1"></div><br>
                 <div>
-                    <a href="productos.php"><button class="back"><span class="material-symbols-outlined">arrow_back</span></button></a>
+                    <a href="checkout.php"><button class="back"><span class="material-symbols-outlined">arrow_back</span></button></a>
                 </div><br>
                 <div class="hr1"></div><br><br><br>
-                <?php if ($lista_carrito != null) { ?>
-                    <div>
-                        <h5>Valor total: </h5>
-                        <p class="h3" id="total">
+                <div>
+                    <h5>Total a pagar: </h5>
+                    <p class="h3" id="total">
 
-                            <?php echo number_format($total, 2, '.', ','); ?>
-                            $</p>
-                    </div>
-                    <div>
-                        <a href="paypal.php"><button class="pago"><b>Comprar</b></button></a>
-                    </div>
-                <?php } ?>
+                        <?php echo number_format($total, 2, '.', ','); ?>
+                        $</p>
+                </div>
             </div>
         </div>
     </div><br>
@@ -150,36 +141,43 @@ if ($productos != null) {
     })
 </script>
 <script>
-    let eliminaModal = document.getElementById('eliminaModal')
-    eliminaModal.addEventListener('show.bs.modal', function(event) {
-        let button = event.relatedTarget
-        let id = button.getAttribute('data-bs-id')
-        let buttonElimina = eliminaModal.querySelector('.modal-footer #btn-elimina')
-        buttonElimina.value = id
-    })
-
-    function elimina() {
-
-        let botonElimina = document.getElementById('btn-elimina')
-        let id = botonElimina.value
-
-        let url = 'eliminar_carrito.php'
-        let formData = new FormData()
-        formData.append('action', 'eliminar')
-        formData.append('id', id)
-
-        fetch(url, {
-            method: 'POST',
-            body: formData,
-            mode: 'cors'
-        }).then(data => {
-            if (data.ok) {
-                location.reload()
-            }
-        })
-    }
+    paypal.Buttons({
+        style: {
+            label: 'pay'
+        },
+        createOrder: function(data, actions) {
+            return actions.order.create({
+                purchase_units: [{
+                    amount: {
+                        value: <?php echo $total;?>
+                    }
+                }]
+            })
+        },
+        onApprove: function(data, actions) {
+            actions.order.capture().then(function(detalles) {
+                let url = 'captura.php'
+                return fetch(url, {
+                    method: 'post',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        detalles: detalles
+                    }),
+                })
+            });
+        },
+        onCancel: function(data) {
+            swal({
+                icon: "error",
+                title: "Se ha cancelado el pago!"
+            });
+        }
+    }).render('#paypal-button-container')
 </script>
 <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>

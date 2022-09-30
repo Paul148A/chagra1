@@ -1,3 +1,6 @@
+<?php
+include "token.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +11,7 @@
   <title>Document</title>
   <!-- CSS only -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-  <link rel="stylesheet" href="sistema/css/styles21.css">
+  <link rel="stylesheet" href="sistema/css/styles23.css">
   <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +30,9 @@
           <ion-icon name="logo-tiktok"></ion-icon>
         </a>
       </ul>
+      <ul>
+        <p style="font-family: 'Dancing Script', cursive; color:black;" class="colort fontz mt-4">Aquí si hay ahorro !!</p>
+      </ul>
       <ul><br>
         <strong class="navbar-text text" style="margin-right: 6px;">
           Contactanos:
@@ -38,29 +44,39 @@
     </div>
     </div>
   </nav>
-  <nav class="navbar bg-danger">
-    <div class="container-fluid">
-      <ul>
-        <p style="font-family: 'Dancing Script', cursive; margin-left: 57px;" class="colort fontz mt-3">Aquí si hay ahorro !!</p>
-      </ul>
-      <img src="sistema/img/chagraf.png" width="180px" class="mx-auto d-block">
-      <ul>
-        <a href="productos.php" style="text-decoration: none;">
-          <div class="colort1">Productos</div>
-        </a>
-      </ul>
-      <ul>
-        <a href="sistema/quienes.php" style="text-decoration: none;">
-          <div class="colort1">Quienes Somos</div>
-        </a>
-      </ul>
-      <ul>
-        <a href="sistema/index.php" style="text-decoration: none;">
-          <div class="colort1">Iniciar Sesión</div>
-        </a>
-      </ul>
-    </div>
-  </nav>
+  <div class="container-fluid bgnav"><br>
+    <div class="row">
+      <div class="col-8">
+        <div class="row">
+          <div class="col-5" align="center">
+            <a href="checkout.php"><button class="buttoncarrito">Mi carrito <br><span class="material-symbols-outlined iconcart">add_shopping_cart</span><br><span id="num_cart"><?php echo $num_cart; ?></span></button></a>
+          </div>
+          <div class="col-7">
+            <img src="sistema/img/chagraf.png" width="230px" class="mx-auto d-block">
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <div class="col-3">
+            <a href="productos.php" style="text-decoration: none; color:white;" class="text-center">
+              <div class="colort1">Productos</div>
+            </a>
+          </div>
+          <div class="col-5">
+            <a href="sistema/quienes.php" style="text-decoration: none;" class="text-center">
+              <div class="colort1">Quienes Somos</div>
+            </a>
+          </div>
+          <div class="col-4">
+            <a href="sistema/index.php" style="text-decoration: none;" class="text-center">
+              <div class="colort1">Iniciar Sesión</div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div><br>
+  </div>
   <!---------------------------------------------------------------------------------------Carousel-------------------------------------------------------------------------------------->
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
@@ -80,8 +96,8 @@
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"  aria-hidden="true"></span>
-      <span class="visually-hidden" >Previous</span>
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
     </button>
     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
@@ -106,14 +122,14 @@
               <img class="" src="sistema/img/perrito.png" width="475" height="280">
             </div>
           </div>
-          <button class="boton cinco col-4 mx-auto">
-            <div class="icono">
-              <span class="material-symbols-outlined">
-                pets
-              </span>
-            </div>
-            <span>Ver mas</span>
-          </button><br>
+          <a href="productos.php" align="center"><button class="boton cinco col-4 mx-auto">
+              <div class="icono">
+                <span class="material-symbols-outlined">
+                  pets
+                </span>
+              </div>
+              <span>Ver mas</span>
+            </button></a><br>
         </div>
         <div style="margin-right: 2px; margin-left: 2px; margin-bottom: 30px;" class="bordbgr bg card col-5 mx-auto">
           <div class="bgnone bord1 card-header">
@@ -123,14 +139,14 @@
               <img class="" src="sistema/img/licores.png" width="475" height="280">
             </div>
           </div>
-          <button class="boton2 cuatro col-4 mx-auto">
-            <div class="icono">
-              <span class="material-symbols-outlined">
-                local_bar
-              </span>
-            </div>
-            <span>Ver mas</span>
-          </button><br>
+          <a href="productos.php" align="center"><button class="boton2 cuatro col-4 mx-auto">
+              <div class="icono">
+                <span class="material-symbols-outlined">
+                  local_bar
+                </span>
+              </div>
+              <span>Ver mas</span>
+            </button></a><br>
         </div>
       </div>
       <div class="row">
@@ -142,14 +158,14 @@
               <img class="" src="sistema/img/aseo.png" width="475" height="310">
             </div>
           </div>
-          <button class="boton2 cuatro col-4 mx-auto">
-            <div class="icono">
-              <span class="material-symbols-outlined">
-                sanitizer
-              </span>
-            </div>
-            <span>Ver mas</span>
-          </button><br>
+          <a href="productos.php" align="center"><button class="boton2 cuatro col-4 mx-auto">
+              <div class="icono">
+                <span class="material-symbols-outlined">
+                  sanitizer
+                </span>
+              </div>
+              <span>Ver mas</span>
+            </button></a><br>
         </div>
         <div style="margin-right: 2px; margin-left: 2px; margin-bottom: 30px;" class="bord bgr card col-5 mx-auto">
           <div class="bgnone bord1 card-header">
@@ -159,14 +175,14 @@
               <img class="" src="sistema/img/condimensa.png" width="475" height="310">
             </div>
           </div>
-          <button class="boton cinco col-4 mx-auto">
-            <div class="icono">
-              <span class="material-symbols-outlined">
-                restaurant
-              </span>
-            </div>
-            <span>Ver mas</span>
-          </button><br>
+          <a href="productos.php" align="center"><button class="boton cinco col-4 mx-auto">
+              <div class="icono">
+                <span class="material-symbols-outlined">
+                  restaurant
+                </span>
+              </div>
+              <span>Ver mas</span>
+            </button></a><br>
         </div>
       </div>
     </div><br><br>

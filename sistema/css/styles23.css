@@ -23,7 +23,7 @@
 
 .colort1 {
     text-decoration: none;
-    color: white;
+    color: rgb(255, 255, 255);
     transition: .1s ease-in;
     padding: 10px;
 }
@@ -467,5 +467,32 @@
     padding-right: 30px;
 }
 
+.pago{
+    border-style: none;
+    background-color: rgb(113, 113, 240);
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 46px;
+    padding-left: 46px;
+    border-radius: 10px;
+    color: white;
+}
 
+.back1{
+    border-style: none;
+    background-color: rgb(233, 39, 39);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+}
+
+.back2{
+    border-style: none;
+    background-color: rgb(233, 39, 39);
+    color: white;
+    border-radius: 5px;
+    height: 30px;
+    width: 100px;
+}
 

@@ -86,8 +86,8 @@ if (!empty($_SESSION['active'])) {
                       <input type="password" class="form-control" placeholder="Contraseña" name="clave">
                     </div><br>
                     <input type="submit" value="Iniciar" class="btn btn-danger">
-                    
-                  </form>
+                  </form><br>
+                  <a href="index1.php"><button class="btn btn-danger">Regresar</button></a>
                   <hr>
                 </div>
               </div>
