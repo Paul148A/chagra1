@@ -36,7 +36,7 @@ if ($id == '' || $token == '') {
     <title>Document</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="sistema/css/styles23.css">
+    <link rel="stylesheet" href="sistema/css/styles24.css">
     <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,33 +45,36 @@ if ($id == '' || $token == '') {
 </head>
 
 <body>
-    <nav class="navw navbar navbar-expand-lg bg" id="inicio">
-        <div class="container-fluid">
-            <ul>
-                <br>
-                <a href="https://www.facebook.com/ElchagraSupermercado/?ref=py_c" style="color: black; margin-left: 50px; "><i data-feather="facebook"></i></a>
-                <a style="color: black; margin-left: 30px; margin-top: 30px;"><i data-feather="instagram"></i></a>
-                <a style="color: black; margin-left: 30px;">
-                    <ion-icon name="logo-tiktok"></ion-icon>
-                </a>
-            </ul>
-            <ul><br>
-                <strong class="navbar-text text" style="margin-right: 6px;">
-                    Contactanos:
-                </strong>
-                <span class="navbar-text" style="margin-right: 60px;">
-                    <i data-feather="phone"></i> 0998085736
-                </span>
-            </ul>
-        </div>
-    </nav><br>
-    <div class="col-11" align="end">
+<div class="container-fluid bg" id="inicio">
+    <div class="row">
+      <div class="col-4 d-none d-sm-none d-md-none d-xl-block">
+        <br>
+        <a href="https://www.facebook.com/ElchagraSupermercado/?ref=py_c" style="color: black; margin-left: 50px; "><i data-feather="facebook"></i></a>
+        <a style="color: black; margin-left: 30px; margin-top: 30px;"><i data-feather="instagram"></i></a>
+        <a style="color: black; margin-left: 30px;">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+      </div>
+      <div class="col-lg-4 col-12 mx-auto">
+      <a href="index1.php"><img src="sistema/img/chagraf.png" width="170px" class="mx-auto d-block"></a>
+      </div>
+      <div class=" col-4 d-none d-sm-none d-md-none d-xl-block" align="end"><br>
+        <strong class="navbar-text text" style="margin-right: 6px;">
+          Contactanos:
+        </strong>
+        <span class="navbar-text" style="margin-right: 60px;">
+          <i data-feather="phone"></i> 0998085736
+        </span>
+      </div>
+    </div>
+  </div><br>
+    <div class="col-lg-11 col-9" align="end">
         <a href="checkout.php"><button class="buttoncarrito">Mi carrito <br><span class="material-symbols-outlined iconcart">add_shopping_cart</span><br><span id="num_cart"><?php echo $num_cart; ?></span></button></a>
     </div><br>
     <div class=" vistap container-lg card">
         <div class="row">
-            <div class="col-lg-5 bgim">
-                <img src="sistema/imagenes/<?php echo $imagen ?>" class="imgvista">
+            <div class="col-lg-5 col-12 bgim">
+                <img src="sistema/imagenes/<?php echo $imagen ?>" class="img-fluid">
             </div>
             <div class="col-lg-5 mx-auto card cardin"><br><br>
                 <div class="hr1"></div><br>
@@ -81,18 +84,18 @@ if ($id == '' || $token == '') {
                 <h4>Cantidad disponible: <?php echo $stock ?></h4>
                 <div class="hr2"></div><br><br>
                 <div class="container">
-                    <div class="row">
-                        <div class="col-3">
+                    <div class="row" align="center">
+                        <div class="col-lg-3 col-12">
                             <button id="menos" class="bcont">
                                 <span class="material-symbols-outlined">
                                     remove
                                 </span>
                             </button>
                         </div>
-                        <div class="col-2">
+                        <div class="col-lg-2 col-12">
                             <h4 id="cant" name="cant" class="text-center">1</h4>
                         </div>
-                        <div class="col-3">
+                        <div class="col-lg-3 col-12">
                             <button id="mas" class="bcont">
                                 <span class="material-symbols-outlined">
                                     add
@@ -103,18 +106,18 @@ if ($id == '' || $token == '') {
                 </div>
                 <hr>
                 <div class="row">
-                    <div class="col-5 mx-auto">
+                    <div class="col-lg-5 col-12 mx-auto" align="center">
                         <button class="carrito" onclick="addProducto(<?php echo $id; ?>, '<?php echo $token_tmp; ?>', cant)">Agregar al carrito <span class="material-symbols-outlined">add_shopping_cart</span></button>
                     </div>
-                    <div class="col-5 mx-auto" align="end">
+                    <div class="col-lg-5 d-none d-sm-none d-md-none d-xl-block">
                         <a href="productos.php"><button class="back"><span class="material-symbols-outlined">arrow_back</span></button></a>
                     </div>
                 </div>
             </div>
         </div><br><br>
         <div class="row">
-            <div class="col-6"></div>
-            <div class="col-6">
+            <div class="col-6 d-none d-sm-none d-md-none d-xl-block"></div>
+            <div class="col-lg-6 col-11" align="center">
                 <div>
                     <h6>'El precio marcado en los productos radica en dolares Americanos'</h6>
                 </div>

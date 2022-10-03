@@ -23,7 +23,7 @@ if ($productos != null) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
-    <link rel="stylesheet" href="sistema/css/styles23.css">
+    <link rel="stylesheet" href="sistema/css/styles24.css">
     <link rel="stylesheet" href="sistema/css/fontawesome.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -32,31 +32,34 @@ if ($productos != null) {
 </head>
 
 <main>
-    <nav class="navw navbar navbar-expand-lg bg" id="inicio">
-        <div class="container-fluid">
-            <ul>
-                <br>
-                <a href="https://www.facebook.com/ElchagraSupermercado/?ref=py_c" style="color: black; margin-left: 50px; "><i data-feather="facebook"></i></a>
-                <a style="color: black; margin-left: 30px; margin-top: 30px;"><i data-feather="instagram"></i></a>
-                <a style="color: black; margin-left: 30px;">
-                    <ion-icon name="logo-tiktok"></ion-icon>
-                </a>
-            </ul>
-            <ul><br>
-                <strong class="navbar-text text" style="margin-right: 6px;">
-                    Contactanos:
-                </strong>
-                <span class="navbar-text" style="margin-right: 60px;">
-                    <i data-feather="phone"></i> 0998085736
-                </span>
-            </ul>
-        </div>
-    </nav><br>
+<div class="container-fluid bg" id="inicio">
+    <div class="row">
+      <div class="col-4 d-none d-sm-none d-md-none d-xl-block">
+        <br>
+        <a href="https://www.facebook.com/ElchagraSupermercado/?ref=py_c" style="color: black; margin-left: 50px; "><i data-feather="facebook"></i></a>
+        <a style="color: black; margin-left: 30px; margin-top: 30px;"><i data-feather="instagram"></i></a>
+        <a style="color: black; margin-left: 30px;">
+          <ion-icon name="logo-tiktok"></ion-icon>
+        </a>
+      </div>
+      <div class="col-lg-4 col-12 mx-auto">
+      <a href="index1.php"><img src="sistema/img/chagraf.png" width="170px" class="mx-auto d-block"></a>
+      </div>
+      <div class=" col-4 d-none d-sm-none d-md-none d-xl-block" align="end"><br>
+        <strong class="navbar-text text" style="margin-right: 6px;">
+          Contactanos:
+        </strong>
+        <span class="navbar-text" style="margin-right: 60px;">
+          <i data-feather="phone"></i> 0998085736
+        </span>
+      </div>
+    </div>
+  </div><br>
     <!---------------------------------------------------------------------------------productos del carrito------------------------------->
     <div class="container-fluid">
         <div class="row">
             <div class="col-10">
-                <table class="table table-striped">
+                <table class="table table-striped tablescroll">
                     <thead>
                         <tr>
                             <th><b>Producto</b></th>
@@ -100,7 +103,7 @@ if ($productos != null) {
                 <?php } ?>
                 </table>
             </div>
-            <div class="col-2">
+            <div class="col-lg-2 col-12" align="center">
                 <div>
                     <button class="buttoncarritosolo">Mi carrito <br><span class="material-symbols-outlined iconcart">add_shopping_cart</span><br><span id="num_cart"><?php echo $num_cart; ?></span></button>
                 </div><br><br>

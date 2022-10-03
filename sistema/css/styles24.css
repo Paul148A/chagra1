@@ -376,8 +376,8 @@
     border-radius: 10px;
     border-style: none;
     background-image: url(../img/fondo.jpg);
-    background-size: cover;
-}
+    background-size: cover; 
+ }
 
 .imgvista {
     padding-top: 10px;
@@ -494,5 +494,9 @@
     border-radius: 5px;
     height: 30px;
     width: 100px;
+}
+
+.tablescroll{
+    overflow-x: scroll;
 }
 
